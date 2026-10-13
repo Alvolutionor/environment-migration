@@ -29,6 +29,8 @@ def build(output):
     codex = read_json(ROOT / ".codex-plugin/plugin.json")
     if (claude["name"], claude["version"]) != (codex["name"], codex["version"]):
         raise ValueError("Plugin identities and versions must match")
+    if "screenshots" in codex.get("interface", {}):
+        raise ValueError("Skills-only submissions must not include interface.screenshots")
     portable = {"$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json"}
     for key in ("name", "version", "description", "author", "homepage", "repository", "license", "keywords"):
         portable[key] = codex[key]
@@ -55,7 +57,6 @@ def build(output):
                 add_bytes(archive, prefix + "plugin.json", json.dumps(portable, indent=2) + "\n")
                 add_bytes(archive, prefix + ".claude-plugin/plugin.json", json.dumps(claude, indent=2) + "\n")
                 add_bytes(archive, prefix + "assets/icon.svg", (ROOT / "assets/icon.svg").read_bytes())
-                add_bytes(archive, prefix + "assets/demo.png", (ROOT / "assets/demo.png").read_bytes())
         packages[filename] = hashlib.sha256(target.read_bytes()).hexdigest()
     (output / "SHA256SUMS.txt").write_text("".join(f"{digest}  {name}\n" for name, digest in packages.items()), encoding="utf-8")
     print(json.dumps({"version": version, "artifacts": packages}, indent=2))

@@ -7,6 +7,7 @@ import subprocess
 import sys
 import tempfile
 import unittest
+from unittest import mock
 import zipfile
 
 
@@ -17,6 +18,20 @@ SPEC.loader.exec_module(release)
 
 
 class DistributionTests(unittest.TestCase):
+    def test_skills_only_package_rejects_unsupported_screenshot_metadata(self):
+        original_read = release.read_json
+
+        def read_with_screenshots(path):
+            manifest = original_read(path)
+            if path.parent.name == ".codex-plugin":
+                manifest["interface"]["screenshots"] = ["./assets/demo.png"]
+            return manifest
+
+        with tempfile.TemporaryDirectory() as temporary:
+            with mock.patch.object(release, "read_json", side_effect=read_with_screenshots):
+                with self.assertRaisesRegex(ValueError, "Skills-only submissions"):
+                    release.build(temporary)
+
     def test_portable_plugin_contains_working_resources_and_local_metadata(self):
         with tempfile.TemporaryDirectory() as temporary:
             output = pathlib.Path(temporary)

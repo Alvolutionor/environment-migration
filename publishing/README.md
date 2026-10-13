@@ -26,11 +26,15 @@ The builder reads the canonical root skill and emits allowlisted standalone and 
 
 ## OpenAI directory
 
-Upload the **plugin** ZIP from the matching GitHub release. Select the verified publisher that owns this repository. The package declares `requires_local_executor: true` because migration requires access to local files. It is skills-only and does not need an MCP endpoint.
+Use the **plugin** ZIP from release **v0.2.1 or later**. Version v0.2.0 included `interface.screenshots`, which the skills-only upload path rejects. The updated manifests omit it and the builder rejects accidental reintroduction. A successful local schema check alone does not prove submission compatibility.
+
+The package declares `requires_local_executor: true` because migration requires access to local files. It is skills-only and does not need an MCP endpoint. OpenAI's conversion guide says to contact an OpenAI partner before submitting plugins whose core value requires local execution, arbitrary local file access, hardware/application access, or offline operation. Confirm account eligibility for this use case first; this project's publisher access has not been checked.
+
+Once eligibility is confirmed, select the verified individual or business identity that will own the plugin. Organization owners can submit; other submitters need Apps Management Write. The listing's publisher name comes from the verified identity, not merely the author name in the manifest.
 
 Wait for metadata and skill checks. Correct findings in the source manifests or skill, rebuild, and upload a new package. Review identity information and any policy attestations personally before submitting. After approval, publish from the portal. Local CLI validation cannot establish portal eligibility or approval.
 
-Official references: [package layout](https://developers.openai.com/plugins/build/plugins), [submission](https://developers.openai.com/plugins/deploy/submission), [desktop-only skills](https://developers.openai.com/plugins/deploy/desktop-only).
+Official references: [package layout](https://developers.openai.com/plugins/build/plugins), [submission](https://developers.openai.com/plugins/deploy/submission), [desktop-only skills](https://developers.openai.com/plugins/deploy/desktop-only), [local execution eligibility](https://developers.openai.com/plugins/guides/submit-claude-plugin), [skills-only upload exclusions](https://developers.openai.com/plugins/deploy/submission-errors).
 
 ## Anthropic directory
 
