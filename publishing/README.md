@@ -14,6 +14,8 @@
 
 Directory status is a publication record, not an endorsement. Repository catalogs and public vendor directories are different distribution sources.
 
+At the v0.2.0 verification, the skills.sh detail page returned successfully, but owner-filtered catalog search returned no matching skill. Search indexing remains unconfirmed; a reachable detail page does not establish search visibility or ranking. The published version was installed and upgraded through the normal CLI without manufacturing installation events.
+
 ## Build the upload packages
 
 ```sh
