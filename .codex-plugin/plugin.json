@@ -1,0 +1,34 @@
+{
+  "name": "environment-migration",
+  "version": "0.2.0",
+  "description": "Prepare a verified migration package for a new computer, map destination folders, and preview safe restoration.",
+  "author": {
+    "name": "Alvolutionor",
+    "url": "https://github.com/Alvolutionor"
+  },
+  "homepage": "https://github.com/Alvolutionor/environment-migration",
+  "repository": "https://github.com/Alvolutionor/environment-migration",
+  "license": "MIT",
+  "keywords": ["migration", "backup", "new-computer", "developer-environment", "restore"],
+  "skills": ["./"],
+  "requires_local_executor": true,
+  "interface": {
+    "displayName": "Environment Migration",
+    "shortDescription": "Move your working environment",
+    "longDescription": "Plan a move to a new computer, preserve portable files and dependency records, and rebuild machine-specific capabilities. Package selected files with SHA-256 verification, map destination folders explicitly, and preview restoration before applying. Requires local Python 3.10 or later. Existing differing files are preserved. Database imports and software installation use separate native procedures; archives are not encrypted.",
+    "developerName": "Alvolutionor",
+    "category": "Productivity",
+    "capabilities": ["Read", "Write"],
+    "websiteURL": "https://github.com/Alvolutionor/environment-migration",
+    "supportURL": "https://github.com/Alvolutionor/environment-migration/issues",
+    "privacyPolicyURL": "https://github.com/Alvolutionor/environment-migration/blob/main/PRIVACY.md",
+    "defaultPrompt": [
+      "Prepare a migration package for my new computer. Discover the current environment first and verify the package before handoff.",
+      "Preview restoring this migration package into explicitly mapped folders. Report conflicts before writing files."
+    ],
+    "brandColor": "#0F766E",
+    "composerIcon": "./assets/icon.svg",
+    "logo": "./assets/icon.svg",
+    "screenshots": ["./assets/demo.png"]
+  }
+}

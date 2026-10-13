@@ -1,0 +1,20 @@
+{
+  "name": "alvolutionor-tools",
+  "interface": {
+    "displayName": "Alvolutionor Tools"
+  },
+  "plugins": [
+    {
+      "name": "environment-migration",
+      "source": {
+        "source": "local",
+        "path": "./"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

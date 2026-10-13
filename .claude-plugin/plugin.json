@@ -1,0 +1,14 @@
+{
+  "name": "environment-migration",
+  "version": "0.2.0",
+  "description": "Prepare a verified migration package for a new computer, map destination folders, and preview safe restoration.",
+  "author": {
+    "name": "Alvolutionor",
+    "url": "https://github.com/Alvolutionor"
+  },
+  "homepage": "https://github.com/Alvolutionor/environment-migration",
+  "repository": "https://github.com/Alvolutionor/environment-migration",
+  "license": "MIT",
+  "keywords": ["migration", "backup", "new-computer", "developer-environment", "restore"],
+  "skills": ["./"]
+}
